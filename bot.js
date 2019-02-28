@@ -1,5 +1,5 @@
-const fs = require('fs'); // npm i fs
-const ms = require('ms'); // npm i ms
+const Discord = require('discord.js');
+const client = new Discord.Client();
 const cool = [];
 var prefix = "+";
 client.on('message',async message => {
