@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var prefix = "+";
+
 const fs = require('fs'); // npm i fs
 const ms = require('ms'); // npm i ms
 const cool = [];
