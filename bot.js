@@ -5,10 +5,6 @@ var prefix = "+";
 client.on('message',async message => {
   if(message.author.bot) return;
   if(message.channel.type === 'dm') return;
- 
-  client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);  
-});
   
   const args = message.content.split(' ');
   const credits = require('./credits.json');
