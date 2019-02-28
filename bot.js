@@ -1,12 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var prefix = "+";
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);  
-});
-
-
 const fs = require('fs'); // npm i fs
 const ms = require('ms'); // npm i ms
 const cool = [];
@@ -23,6 +17,10 @@ client.on('message',async message => {
   const balance = args[2];
   const daily = Math.floor(Math.random() * 350) + 10;
  
+  client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);  
+});
+  
   if(!credits[author]) credits[author] = {credits: 50};
   if(!credits[mention.id]) credits[mention.id] = {credits: 50};
   fs.writeFile(path, JSON.stringify(credits, null, 5), function(err) {if(err) console.log(err)});
