@@ -7,11 +7,6 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);  
 });
   
-  
-  if(!credits[author]) credits[author] = {credits: 50};
-  if(!credits[mention.id]) credits[mention.id] = {credits: 50};
-  fs.writeFile(path, JSON.stringify(credits, null, 5), function(err) {if(err) console.log(err)});
- 
  
   if(message.content.startsWith(prefix + "credit")) {
   if(args[0] !== `${prefix}credit` && args[0] !== `${prefix}credits`) return;
