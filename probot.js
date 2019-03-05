@@ -8,14 +8,10 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Happier Community`,"http://twitch.tv/Death Shop")
+client.user.setGame(`+help`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
 
-
-client.on("message", message => {
-
- 
 
   if (message.author.bot) return;
 
@@ -253,4 +249,5 @@ if (err) console.error(err);
 
 })
 
+     
 client.login(process.env.BOT_TOKEN);
