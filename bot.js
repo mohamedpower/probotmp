@@ -12,55 +12,25 @@ client.user.setGame(`+help`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
 
-client.on('message',async message => {
+client.on('message' , message => {
 
-  if(message.author.bot || message.channel.type === 'bc') return;
+  if(message.author.bot) return;
 
-  let args = message.content.split(' ');
+  if(message.content.startsWith(prefix + "ping")) {
 
-  if(args[0] === bc) {
+ message.channel.send('pong').then((msg) => {
 
-    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send('- **أنت لا تملك الصلاحيات اللازمة لأستخدام هذا الأمر**');
+var PinG = ${Date.now() - msg.createdTimestamp}
 
-    if(!args[1]) return message.channel.send('- **يجب عليك كتابة الرسالة بعد الأمر**');
+var ApL = ${Math.round(client.ping)}
 
- 
+      msg.edit(\``javascript\nTime taken: ${PinG} ms.\nDiscord API: ${ApL} ms.````);
 
-    let msgCount = 0;
+ })
 
-    let errorCount = 0;
+  }  
 
-    let successCount = 0;
-
-    message.channel.send(- [ bookmark :: ${msgCount} ] ・عدد الرسائل المرسلة\n- [ inbox_tray :: ${successCount} ] ・عدد الرسائل المستلمة\n- [ outbox_tray :: ${errorCount} ]・عدد الرسائل الغير مستلمة).then(msg => {
-
-      message.guild.members.forEach(g => {
-
-        g.send(args.slice(1).join(' ')).then(() => {
-
-          successCount++;
-
-          msgCount++;
-
-          msg.edit(- [ bookmark :: ${msgCount} ] ・عدد الرسائل المرسلة\n- [ inbox_tray :: ${successCount} ] ・عدد الرسائل المستلمة\n- [ outbox_tray :: ${errorCount} ]・عدد الرسائل الغير مستلمة);
-
-        }).catch(e => {
-
-          errorCount++;
-
-          msgCount++;
-
-          msg.edit(- [ bookmark :: ${msgCount} ] ・عدد الرسائل المرسلة\n- [ inbox_tray :: ${successCount} ] ・عدد الرسائل المستلمة\n- [ outbox_tray :: ${errorCount} ]・عدد الرسائل الغير مستلمة);
-
-        });
-
-      });
-
-    });
-
-  }
-
-});
+ });
 
      
 client.login(process.env.BOT_TOKEN);
